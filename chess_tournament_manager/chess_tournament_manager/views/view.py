@@ -17,7 +17,8 @@ class ViewMenu:
     def get_user_response(self):
         self.user_response = input("Entrez un chiffre pour naviguer dans le menu : ")
         return self.user_response
-            
+    
+    
 
     
 

@@ -1,10 +1,11 @@
 class Player:
-    def __init__(self, lastname="", firstname="", date_of_birth="", sexe="", rank=""):
+    def __init__(self, lastname="", firstname="", date_of_birth="", sexe="", rank="", score=""):
         self.lastname = lastname
         self.firstname = firstname
         self.date_of_birth = date_of_birth
         self.sexe = sexe
         self.rank = rank
+        self.score = score
         
     def __repr__(self):
         return f"Nom : {self.firstname}, Prénom : {self.lastname}, Date de naissance : {self.date_of_birth}, Genre : {self.sexe}, Rang : {self.rank}"

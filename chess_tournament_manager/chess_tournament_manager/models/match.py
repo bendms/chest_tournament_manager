@@ -11,3 +11,4 @@ class Match:
     def get_match_tuple(self):
         match_tuple = [self.player_1, self.player_1_result], [self.player_2, self.player_2_result]
         return match_tuple
+    
