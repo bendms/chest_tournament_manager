@@ -1,6 +1,5 @@
-from os import readlink
 from typing import List
-from models.models import Round
+
 
 from models.player import Player
 from models.match import Match
@@ -16,14 +15,21 @@ class Tournament():
         self.nb_rounds = nb_rounds
         self.time_control = time_control
         self.description = description
-        # self.players = List[Player] = []
-        self.players = players
+        self.players = List[Player] = []
+        # self.players = players
 
             
     def create_new_tournament(self):
         if self.name == "":
             self.name = input("Veuillez entrer le nom du tournois : ")
             print(f"Le tournois se nomme '{self.name}'")
+        if self.location == "":
+            self.location = input("Veuillez entrer la localisation du tournois : ")
+            print(f"Le tournois se nomme '{self.location}'")
+        if self.description == "":
+            self.description = input("Veuillez entrer la description du tournois : ")
+            print(f"Le tournois se nomme '{self.description}'")
+        
     
     def add_player(self, player):
         # self.players.append(player)

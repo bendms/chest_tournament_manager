@@ -1,3 +1,4 @@
+from re import M
 from typing import List
 import json
 
@@ -62,6 +63,8 @@ db_players = [
             ["Thibault", "Darma", "09/08/1983", "Homme", 1110]
               ]
 
+################################################################################################################################################
+
 #Initialize instance of class Tournament 
 tournament_testing = Tournament(name = db_tournament[0], location = db_tournament[1], date = db_tournament[2], nb_rounds = db_tournament[3], description = db_tournament[4])
 
@@ -80,33 +83,15 @@ with open("db.json", "w", encoding="UTF-8") as jf:
         
 #Sorted list of player by ranking
 tournament_testing.sorted_list_of_player_for_round_1()
-# tournament_testing.players.sort(key=lambda player: player.rank, reverse=True)
-
-#Create 2 lists of players
-list_a =[]
-list_a = tournament_testing.players[0:4]
-list_b = []
-list_b = tournament_testing.players[4:8]
 
 #Create round 
-# first_round = []
 first_round = Round(name_of_round = "Round_1")
+# first_round = []
+first_round.create_list_of_match(tournament_testing)
+# print(first_round.list_of_match)
 
-#For loop to create list of match
-for i in range(len(list_a)):
-    first_round.list_of_match.append(list_a[i])
-    first_round.list_of_match.append(list_b[i])
-    match = Match(player_1 = list_a[i], player_1_result = 0, player_2 = list_b[i], player_2_result = 0)
-    tuple_match = match.get_match_tuple()
-    print(f"Match n°", i+1, ":", tuple_match)
 
-for match in tuple_match:
-    result_match = input("Qui a gagné le match ? 1 pour : " + str(match.player_1) + "2 pouur : " + str(match.player_2))
-    if result_match == 1:
-        tuple_match.player_1_result += 1
-    elif result_match == 2:
-        tuple_match.player_2_result += 1
-    
+
         
 
 # print(tournament_testing.__dict__)
