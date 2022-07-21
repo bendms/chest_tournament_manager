@@ -1,4 +1,3 @@
-from re import M
 from typing import List
 import json
 
@@ -86,13 +85,15 @@ tournament_testing.sorted_list_of_player_for_round_1()
 
 #Create round 
 first_round = Round(name_of_round = "Round_1")
-# first_round = []
+
+#Create list of match for first round
 first_round.create_list_of_match(tournament_testing)
-# print(first_round.list_of_match)
 
+for i, tuple in enumerate(first_round.list_of_match):
+    print(first_round.list_of_match[i])
+    view = ViewMenu()
+    view.get_result_for_round()
 
-
-        
 
 # print(tournament_testing.__dict__)
 # print(tournament_testing.players)

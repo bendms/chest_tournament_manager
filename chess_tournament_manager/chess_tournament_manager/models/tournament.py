@@ -7,7 +7,6 @@ from models.round import Round
 
 
 class Tournament():
-    """import list of objects Player in the class Tournament"""
     def __init__(self, name="", location="", date="", nb_rounds=4, time_control="", description="", players=[]):
         self.name = name
         self.location = location
@@ -15,7 +14,7 @@ class Tournament():
         self.nb_rounds = nb_rounds
         self.time_control = time_control
         self.description = description
-        self.players = List[Player] = []
+        self.players: List[Player] = []
         # self.players = players
 
             

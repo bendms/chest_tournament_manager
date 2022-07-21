@@ -5,7 +5,6 @@ class ViewMenu:
     def __init__(self, player="", user_response=""):
         self.user_response = user_response    
         self.player = player
-        self.user_response = user_response
     
     def display_menu():
         print("Menu : ")
@@ -19,6 +18,7 @@ class ViewMenu:
         return self.user_response
     
     
-
-    
+    def get_result_for_round(self):
+        self.user_response = input("Veuillez indiquer quel joueur à gagner le match. \nTapez 1 pour joueur 1. \nTapez 2 pour joueur 2. \nTapez 0 en cas d'égalité.\n")
+        return self.user_response
 
