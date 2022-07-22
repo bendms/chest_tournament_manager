@@ -8,7 +8,7 @@ class Player:
         self.score = score
         
     def __repr__(self):
-        return f"Nom : {self.firstname}, Prénom : {self.lastname}, Date de naissance : {self.date_of_birth}, Genre : {self.sexe}, Rang : {self.rank}"
+        return f"Nom : {self.firstname}, Prénom : {self.lastname}, Date de naissance : {self.date_of_birth}, Genre : {self.sexe}, Rang : {self.rank}, Score : {self.score}"
     
     def add_player_infos(self):
         self.firstname = input("Veuillez entrer le nom de famille du joueur : ")

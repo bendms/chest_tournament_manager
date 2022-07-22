@@ -25,6 +25,22 @@ class Round:
             self.list_of_match.append(match)
         return self.list_of_match
     
+    def update_score(self, match, user_response):
+        # for match in self.list_of_match:
+            if user_response == "1" :
+                match.player_1_result += 1
+            elif user_response == "2":
+                match.player_2_result += 1
+            elif user_response == "0":
+                match.player_1_result += 0.5
+                match.player_2_result += 0.5
+            else:
+                print("Veuillez entrer 0, 1 ou 2")
+            print(f"\n#### Le match a bien été mis à jour ####\n", match, "\n\n")
+    
+    def create_list_of_round_for_next_round(self, tournament):
+        pass
+        
     def show_winners(self):
         pass
 

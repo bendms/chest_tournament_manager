@@ -92,8 +92,17 @@ first_round.create_list_of_match(tournament_testing)
 for i, tuple in enumerate(first_round.list_of_match):
     print(first_round.list_of_match[i])
     view = ViewMenu()
-    view.get_result_for_round()
+    user_response = view.get_result_for_round()
+    view.get_result_for_round
+    first_round.update_score(match = tuple, user_response = user_response)
+print(first_round.list_of_match)
 
+tournament_testing.sorted_list_of_player_for_next_rounds()
+print(tournament_testing.players)
+# second_round = Round(name_of_round="Round_2")
+# print(second_round)
+# second_round.create_list_of_match(tournament_testing)
+# print(second_round.list_of_match)
 
 # print(tournament_testing.__dict__)
 # print(tournament_testing.players)
