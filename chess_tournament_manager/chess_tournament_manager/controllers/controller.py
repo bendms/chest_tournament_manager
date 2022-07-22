@@ -65,44 +65,48 @@ db_players = [
 ################################################################################################################################################
 
 #Initialize instance of class Tournament 
-tournament_testing = Tournament(name = db_tournament[0], location = db_tournament[1], date = db_tournament[2], nb_rounds = db_tournament[3], description = db_tournament[4])
+controller.tournament = Tournament(name = db_tournament[0], location = db_tournament[1], date = db_tournament[2], nb_rounds = db_tournament[3], description = db_tournament[4])
+print(controller.tournament)
+
 
 #Create instance of Player with database
 for player in db_players:
     player = Player(firstname = player[0], lastname = player[1], date_of_birth = player[2], sexe = player[3], rank = player[4])
     #Add instance of Player in list of player in tournament
-    tournament_testing.players.append(player)
+    controller.tournament.players.append(player)
     
 #Write in JSON file (tournament informations + players)
 with open("db.json", "w", encoding="UTF-8") as jf:
-    # json.dump(tournament_testing.__dict__, jf)
-    for player in tournament_testing.players:
+    # json.dump(controller.tournament.__dict__, jf)
+    for player in controller.tournament.players:
         json.dump(player.__dict__, jf)
         jf.write('\n')
         
 #Sorted list of player by ranking
-tournament_testing.sorted_list_of_player_for_round_1()
+controller.tournament.sorted_list_of_player_for_round_1()
 
 #Create round 
 first_round = Round(name_of_round = "Round_1")
+controller.tournament.add_round(round = first_round)
 
 #Create list of match for first round
-first_round.create_list_of_match(tournament_testing)
+first_round.create_list_of_matches(controller.tournament)
+print(first_round.list_of_matches)
 
-for i, tuple in enumerate(first_round.list_of_match):
-    print(first_round.list_of_match[i])
+for i, tuple in enumerate(first_round.list_of_matches):
+    print(first_round.list_of_matches[i])
     view = ViewMenu()
     user_response = view.get_result_for_round()
     view.get_result_for_round
-    first_round.update_score(match = tuple, user_response = user_response)
-print(first_round.list_of_match)
+    first_round.update_score(user_response = user_response)
+print(first_round.list_of_matches)
 
-tournament_testing.sorted_list_of_player_for_next_rounds()
-print(tournament_testing.players)
+controller.tournament.sorted_list_of_player_for_next_rounds()
+print(controller.tournament.players)
 # second_round = Round(name_of_round="Round_2")
 # print(second_round)
-# second_round.create_list_of_match(tournament_testing)
-# print(second_round.list_of_match)
+# second_round.create_list_of_matches(tournament_testing)
+# print(second_round.list_of_matches)
 
 # print(tournament_testing.__dict__)
 # print(tournament_testing.players)

@@ -5,14 +5,14 @@ from models.match import Match
 
 
 class Round:
-    def __init__(self, list_of_match = [], name_of_round= "", date_and_hour_start= "", date_and_hour_end= ""):
-        # self.list_of_match = List[Match] = []
-        self.list_of_match = list_of_match
+    def __init__(self, list_of_matches = [], name_of_round= "", date_and_hour_start= "", date_and_hour_end= "", match=None):
+        self.match = match
+        self.list_of_matches = list_of_matches
         self.name_of_round = name_of_round
         self.date_and_hour_start = date_and_hour_start
         self.date_and_hour_end = date_and_hour_end
     
-    def create_list_of_match(self, tournament):
+    def create_list_of_matches(self, tournament):
         list_of_players = []
         list_a =[]
         list_a = tournament.players[0:4]
@@ -21,22 +21,23 @@ class Round:
         for i in range(len(list_a)):
             list_of_players.append(list_a[i])
             list_of_players.append(list_b[i])
-            match = Match(player_1 = list_a[i], player_1_result = 0, player_2 = list_b[i], player_2_result = 0)
-            self.list_of_match.append(match)
-        return self.list_of_match
+            self.match = Match(player_1 = list_a[i], player_1_result = 0, player_2 = list_b[i], player_2_result = 0)
+            self.list_of_matches.append(self.match.get_match_tuple())
+        return self.list_of_matches
     
-    def update_score(self, match, user_response):
+    def update_score(self, user_response):
         # for match in self.list_of_match:
             if user_response == "1" :
-                match.player_1_result += 1
+                self.match.player_1_result += 1
             elif user_response == "2":
-                match.player_2_result += 1
+                self.match.player_2_result += 1
             elif user_response == "0":
-                match.player_1_result += 0.5
-                match.player_2_result += 0.5
+                self.match.player_1_result += 0.5
+                self.match.player_2_result += 0.5
             else:
                 print("Veuillez entrer 0, 1 ou 2")
-            print(f"\n#### Le match a bien été mis à jour ####\n", match, "\n\n")
+            print(f"\n#### Le match a bien été mis à jour ####\n", self.match, "\n\n")
+
     
     def create_list_of_round_for_next_round(self, tournament):
         pass

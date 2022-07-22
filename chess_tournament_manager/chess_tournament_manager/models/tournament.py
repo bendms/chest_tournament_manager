@@ -7,7 +7,7 @@ from models.round import Round
 
 
 class Tournament():
-    def __init__(self, name="", location="", date="", nb_rounds=4, time_control="", description="", players=[]):
+    def __init__(self, name="", location="", date="", nb_rounds=4, time_control="", description="", players=[], rounds=[]):
         self.name = name
         self.location = location
         self.date = date
@@ -15,6 +15,7 @@ class Tournament():
         self.time_control = time_control
         self.description = description
         self.players: List[Player] = []
+        self.rounds: List[Round] = []
         # self.players = players
 
             
@@ -45,7 +46,8 @@ class Tournament():
         # for player in self.players:
         #     if player.score == 
 
-
+    def add_round(self, round):
+        self.rounds.append(round)
 
     def create_pair_of_players(self):
         """Au début du premier tour, triez tous les joueurs en fonction de leur classement.
