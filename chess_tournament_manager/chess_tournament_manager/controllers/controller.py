@@ -66,8 +66,6 @@ db_players = [
 
 #Initialize instance of class Tournament 
 controller.tournament = Tournament(name = db_tournament[0], location = db_tournament[1], date = db_tournament[2], nb_rounds = db_tournament[3], description = db_tournament[4])
-print(controller.tournament)
-
 
 #Create instance of Player with database
 for player in db_players:
@@ -89,18 +87,19 @@ controller.tournament.sorted_list_of_player_for_round_1()
 first_round = Round(name_of_round = "Round_1")
 controller.tournament.add_round(round = first_round)
 
-#Create list of match for first round
+#Create list of match for first round 
 first_round.create_list_of_matches(controller.tournament)
 print(first_round.list_of_matches)
 
+#Update score of each match in list of match for first round
 for i, tuple in enumerate(first_round.list_of_matches):
-    print(first_round.list_of_matches[i])
     view = ViewMenu()
     user_response = view.get_result_for_round()
     view.get_result_for_round
-    first_round.update_score(user_response = user_response)
+    first_round.update_score(i = i, user_response = user_response)
 print(first_round.list_of_matches)
 
+#Sorted list of player for new round (sorted with score or rank if equal score)
 controller.tournament.sorted_list_of_player_for_next_rounds()
 print(controller.tournament.players)
 # second_round = Round(name_of_round="Round_2")

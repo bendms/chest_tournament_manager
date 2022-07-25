@@ -40,9 +40,9 @@ class Tournament():
     
     def sorted_list_of_player_for_round_1(self):
         return self.players.sort(key=lambda player: player.rank, reverse=True)
-    
+            
     def sorted_list_of_player_for_next_rounds(self):
-        self.players.sort(key=lambda player: player.score, reverse=True)
+        return self.players.sort(key=lambda player: player.score, reverse=True)
         # for player in self.players:
         #     if player.score == 
 
