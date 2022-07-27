@@ -40,12 +40,36 @@ class Tournament():
     
     def sorted_list_of_player_for_round_1(self):
         return self.players.sort(key=lambda player: player.rank, reverse=True)
-            
-    def sorted_list_of_player_for_next_rounds(self):
-        return self.players.sort(key=lambda player: player.score, reverse=True)
-        # for player in self.players:
-        #     if player.score == 
 
+"""            
+    def sorted_list_of_player_for_next_rounds(self):
+        self.players.sort(key=lambda player: player.score, reverse=True)
+        for i in range(len(self.players)):
+            for j in range(i+1, len(self.players)):
+                if self.players[i].score == self.players[j].score:
+                    self.players[j].insert
+"""
+    def sorted_list_of_player_for_next_rounds(self):
+        self.players.sort(key=lambda player: player.score, reverse=True)
+        higher_score = self.players[0].score
+        higher_players = []
+        new_sort_list = []
+        len_list_players = len(self.players
+        print(higher_score)
+        for player in self.players:
+            while int(len(self.players))  len_list_players:
+                if player.score == higher_score:
+                    higher_players.append(player)
+                    self.players.remove(player)
+                    higher_players.sort(key=lambda player: player.rank, reverse=False)
+                    for player in higher_players:
+                        # self.players.insert(0, player)
+                        new_sort_list.insert(0, player)
+                        higher_players.remove(player)
+                else:
+                    higher_score = higher_score - 0.5
+        self.players = new_sort_list
+    
     def add_round(self, round):
         self.rounds.append(round)
 
