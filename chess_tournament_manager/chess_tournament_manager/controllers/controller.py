@@ -83,7 +83,7 @@ with open("db.json", "w", encoding="UTF-8") as jf:
 #Sorted list of player by ranking
 controller.tournament.sorted_list_of_player_for_round_1()
 
-#Create round 
+#Create round_1
 first_round = Round(name_of_round = "Round_1")
 controller.tournament.add_round(round = first_round)
 
@@ -102,8 +102,12 @@ print(first_round.list_of_matches)
 #Sorted list of player for new round (sorted with score or rank if equal score)
 controller.tournament.sorted_list_of_player_for_next_rounds()
 print(controller.tournament.players)
-# second_round = Round(name_of_round="Round_2")
-# print(second_round)
+
+#Create round_2
+second_round = Round(name_of_round="Round_2")
+print(second_round)
+for player in controller.tournament.players:
+    print(f"Le joueur ", player.firstname, "a déjà rencontré :", player.already_faced_players)
 # second_round.create_list_of_matches(tournament_testing)
 # print(second_round.list_of_matches)
 

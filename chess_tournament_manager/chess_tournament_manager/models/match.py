@@ -17,6 +17,10 @@ class Match:
         match_tuple = ([self.player_1, self.player_1_result], [self.player_2, self.player_2_result])
         return match_tuple
     
+    def opponents_list_update(self):
+        self.player_1.already_faced_players.append(self.player_2)
+        self.player_2.already_faced_players.append(self.player_1)
+        
     # def update_result(self, user_input):
     #     if user_input == 1:
     #         self.player_1_result += 1
