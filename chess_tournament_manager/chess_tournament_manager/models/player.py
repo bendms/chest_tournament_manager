@@ -9,7 +9,8 @@ class Player:
         self.already_faced_players = already_faced_players
         
     def __repr__(self):
-        return f"Prénom : {self.firstname}, Nom : {self.lastname}, Date de naissance : {self.date_of_birth}, Genre : {self.sexe}, Rang : {self.rank}, Score : {self.score}"
+        return f"Prénom : {self.firstname}"
+        # Nom : {self.lastname}, Date de naissance : {self.date_of_birth}, Genre : {self.sexe}, Rang : {self.rank}, Score : {self.score}"
         # return f"Nom : {self.lastname}, Prénom : {self.firstname}, Date de naissance : {self.date_of_birth}, Genre : {self.sexe}, Rang : {self.rank}, Score : {self.score}"
     
     def add_player_infos(self):
@@ -21,3 +22,6 @@ class Player:
         
     def update_score(self, point):
         self.score = self.score + point
+    
+    def add_opponent(self, opponent):
+        self.already_faced_players.append(opponent)

@@ -19,6 +19,6 @@ class ViewMenu:
     
     
     def get_result_for_round(self):
-        self.user_response = input("Veuillez indiquer quel joueur à gagner le match. \nTapez 1 pour joueur 1. \nTapez 2 pour joueur 2. \nTapez 0 en cas d'égalité.\n")
+        self.user_response = input("Veuillez indiquer quel joueur a gagné le match. \nTapez 1 pour joueur 1. \nTapez 2 pour joueur 2. \nTapez 0 en cas d'égalité.\n")
         return self.user_response
 
