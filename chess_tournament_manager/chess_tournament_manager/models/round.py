@@ -22,7 +22,8 @@ class Round:
             list_of_players.append(list_a[i])
             list_of_players.append(list_b[i])
             self.match = Match(player_1 = list_a[i], player_1_result = 0, player_2 = list_b[i], player_2_result = 0)
-            # self.match.opponents_list_update()
+            # self.opponents_list_update(player_1 = list_a[i], player_2 = list_b[i])
+            # self.match.opponents_list_update(player_1 = list_a[i], player_2 = list_b[i])
             self.list_of_matches.append(self.match.get_match_tuple())
         return self.list_of_matches
     
@@ -47,9 +48,9 @@ class Round:
         print(f"\n#### Le match a bien été mis à jour ####\n", self.list_of_matches[i], "\n\n")
         # print(f"\n#### Le match a bien été mis à jour ####\n", self.list_of_matches[i][0], "\n\n")
 
-    def opponents_list_update(self):
-        self.player_1.already_faced_players.append(self.player_2)
-        self.player_2.already_faced_players.append(self.player_1)
+    # def opponents_list_update(self, player_1, player_2):
+    #     self.match.player_1.already_faced_players.append(player_2)
+    #     self.match.player_2.already_faced_players.append(player_1)
               
     def create_list_of_match_for_next_round(self, tournament):
         pass

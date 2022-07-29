@@ -99,6 +99,7 @@ for i, tuple in enumerate(first_round.list_of_matches):
     first_round.update_score(i = i, user_response = user_response)
 print(first_round.list_of_matches)
 
+
 #Sorted list of player for new round (sorted with score or rank if equal score)
 controller.tournament.sorted_list_of_player_for_next_rounds()
 print(controller.tournament.players)

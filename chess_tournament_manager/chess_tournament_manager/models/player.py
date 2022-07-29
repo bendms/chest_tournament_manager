@@ -7,7 +7,7 @@ class Player:
         self.rank = rank
         self.score = score
         self.already_faced_players = already_faced_players
-        
+           
     def __repr__(self):
         return f"Prénom : {self.firstname}"
         # Nom : {self.lastname}, Date de naissance : {self.date_of_birth}, Genre : {self.sexe}, Rang : {self.rank}, Score : {self.score}"
@@ -24,4 +24,7 @@ class Player:
         self.score = self.score + point
     
     def add_opponent(self, opponent):
-        self.already_faced_players.append(opponent)
+        self.already_faced_players = {}
+        self.already_faced_players = set()
+        self.already_faced_players.add(opponent)
+        print("************", opponent)
