@@ -17,7 +17,6 @@ class Match:
         match_tuple = ([self.player_1, self.player_1_result], [self.player_2, self.player_2_result])    
         self.player_1.add_opponent(self.player_2.firstname)
         self.player_2.add_opponent(self.player_1.firstname)
-        print("###########", match_tuple)
         return match_tuple
 
     # def opponents_list_update(self):

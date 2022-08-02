@@ -1,6 +1,7 @@
 from typing import List
 
 
+from models.player import Player
 from models.match import Match
 
 
@@ -22,8 +23,6 @@ class Round:
             list_of_players.append(list_a[i])
             list_of_players.append(list_b[i])
             self.match = Match(player_1 = list_a[i], player_1_result = 0, player_2 = list_b[i], player_2_result = 0)
-            # self.opponents_list_update(player_1 = list_a[i], player_2 = list_b[i])
-            # self.match.opponents_list_update(player_1 = list_a[i], player_2 = list_b[i])
             self.list_of_matches.append(self.match.get_match_tuple())
         return self.list_of_matches
     
@@ -48,12 +47,36 @@ class Round:
         print(f"\n#### Le match a bien été mis à jour ####\n", self.list_of_matches[i], "\n\n")
         # print(f"\n#### Le match a bien été mis à jour ####\n", self.list_of_matches[i][0], "\n\n")
 
-    # def opponents_list_update(self, player_1, player_2):
-    #     self.match.player_1.already_faced_players.append(player_2)
-    #     self.match.player_2.already_faced_players.append(player_1)
-              
-    def create_list_of_match_for_next_round(self, tournament):
-        pass
+    def create_list_of_matches_for_next_rounds(self, tournament, first_round):
+        print(tournament.players)
+        list_of_players = []
+        list_a =[]
+        list_a = tournament.players[::2]
+        list_b = []
+        list_b = tournament.players[1::2]
+        i = 1
+        for Player.already_faced_players in list_a:
+            if i in list_of_players == Player:
+                print("Le ", Player, "a déjà joué contre, ", list_of_players[i])
+            
+        print(list_a)    
+        print(list_b)    
+        for i in range(len(list_a)):
+            list_of_players.append(list_a[i])
+            list_of_players.append(list_b[i])
+            self.match = Match(player_1 = list_a[i], player_1_result = 0, player_2 = list_b[i], player_2_result = 0)
+            self.list_of_matches.append(self.match.get_match_tuple())
+            # for self.match in self.list_of_matches:
+                
+            #     print("Match du Round_2", self.match)
+            #     for i in first_round.list_of_matches:
+            #         print("Match du Round_1", i)
+                # if self.match == first_round.list_of_matches[i]:
+                #     print("Ce match à déjà été joué")
+        print(self.list_of_matches)
+        return self.list_of_matches
+    
+
         
     def show_winners(self):
         pass

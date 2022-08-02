@@ -102,14 +102,15 @@ print(first_round.list_of_matches)
 
 #Sorted list of player for new round (sorted with score or rank if equal score)
 controller.tournament.sorted_list_of_player_for_next_rounds()
-print(controller.tournament.players)
 
 #Create round_2
 second_round = Round(name_of_round="Round_2")
-print(second_round)
 for player in controller.tournament.players:
     print(f"Le joueur ", player.firstname, "a déjà rencontré :", player.already_faced_players)
-# second_round.create_list_of_matches(tournament_testing)
+second_round.create_list_of_matches_for_next_rounds(controller.tournament, first_round)
+print("First Round : ", first_round.list_of_matches)
+print("Second Round : ", second_round.list_of_matches)
+# controller.tournament.compare_rounds(round_a=first_round.list_of_matches, round_b=second_round.list_of_matches)
 # print(second_round.list_of_matches)
 
 # print(tournament_testing.__dict__)

@@ -27,4 +27,4 @@ class Player:
         self.already_faced_players = {}
         self.already_faced_players = set()
         self.already_faced_players.add(opponent)
-        print("************", opponent)
+

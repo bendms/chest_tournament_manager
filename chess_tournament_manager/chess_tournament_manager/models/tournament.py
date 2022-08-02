@@ -43,6 +43,12 @@ class Tournament():
               
     def add_round(self, round):
         self.rounds.append(round)
+        
+    # def compare_rounds(self, round_a, round_b):
+    #     for match_b in round_b:
+    #         for match_a in round_a:
+    #             if match_b[0][0] == match_a[0][0] and match_b[1][0] == match_a[1][0]:
+    #                 print("Ce match à déjà eu lieu", match_a, match_b)
     
     def create_pair_of_players(self):
         """Au début du premier tour, triez tous les joueurs en fonction de leur classement.
